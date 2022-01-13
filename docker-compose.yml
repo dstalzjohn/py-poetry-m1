@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  raw:
+    image: "python:3.8"
+    container_name: py-poetry-m1-raw
+    entrypoint: /bin/sh
+    environment:
+      PATH: "/root/.poetry/bin:${PATH}"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - .:/opt/project
+
+  builded:
+    image: "m1-raw:latest"
+    container_name: py-poetry-m1-builded
+    environment:
+      PATH: "/root/.poetry/bin:${PATH}"
+    entrypoint: /bin/sh
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - .:/opt/project
+
+
+
