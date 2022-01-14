@@ -5,21 +5,25 @@ services:
     image: "python:3.8"
     container_name: py-poetry-m1-raw
     entrypoint: /bin/sh
+    platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    working_dir: /opt/project
     volumes:
       - .:/opt/project
 
   builded:
-    image: "m1-raw:latest"
+    image: "m1-builded:latest"
     container_name: py-poetry-m1-builded
+    platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"
     entrypoint: /bin/sh
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    working_dir: /opt/project
     volumes:
       - .:/opt/project
 
