@@ -1,14 +1,19 @@
+ifneq (,$(wildcard ./.env))
+    include python-envs.env
+    export
+endif
+
 run_raw:
-	docker-compose -f docker-compose.python-envs.yml run --rm raw
+	docker-compose -f docker-compose.python-envs.yml --env-file ./python-envs.env run --rm raw
 
 commit_raw:
-	docker ps -qf "name=m1_raw" | xargs -I{} docker commit {} m1-builded:latest
+	docker ps -qf "name=${RAW_CONTAINER_PREFIX}" | xargs -I{} docker commit {} ${TAG_NAME}:latest
 
 run_builded:
-	docker-compose -f docker-compose.python-envs.yml run --rm builded
+	docker-compose -f docker-compose.python-envs.yml run --env-file ./python-envs.env --rm builded
 
 recommit_builded:
-	docker ps -qf "name=m1_builded" | xargs -I{} docker commit {} m1-builded:latest
+	docker ps -qf "name=${BUILDED_CONTAINER_PREFIX}" | xargs -I{} docker commit {} ${TAG_NAME}:latest
 
 install:
 	bash install.sh
