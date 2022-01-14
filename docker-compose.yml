@@ -3,7 +3,7 @@ services:
 
   raw:
     image: "python:3.8"
-    container_name: py-poetry-m1-raw
+    container_name: py-poetry-m1_raw
     entrypoint: /bin/sh
     platform: linux/amd64
     environment:
@@ -16,7 +16,7 @@ services:
 
   builded:
     image: "m1-builded:latest"
-    container_name: py-poetry-m1-builded
+    container_name: py-poetry-m1_builded
     platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"

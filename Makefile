@@ -12,3 +12,6 @@ retag_builded:
 
 install:
 	bash install.sh
+
+clean_images:
+	docker image prune
