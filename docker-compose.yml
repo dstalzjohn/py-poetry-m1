@@ -14,7 +14,7 @@ services:
       - .:/opt/project
 
   builded:
-    image: "${TAG_NAME}:latest"
+    image: "m1-builded:latest"
     platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"
