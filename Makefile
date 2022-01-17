@@ -1,5 +1,5 @@
 
-TAG_NAME=m1-builded
+TAG_NAME=m1-built
 
 # include this optional file to apply local changes
 -include Makefile.in
@@ -10,11 +10,11 @@ run_raw:
 commit_raw:
 	docker ps -qf "name=$(shell basename `pwd`)_raw" | xargs -I{} docker commit {} $(TAG_NAME):latest
 
-run_builded:
-	docker-compose run --rm builded
+run_built:
+	docker-compose run --rm built
 
-recommit_builded:
-	docker ps -qf "name=$(shell basename `pwd`)_builded" | xargs -I{} docker commit {} $(TAG_NAME):latest
+recommit_built:
+	docker ps -qf "name=$(shell basename `pwd`)_built" | xargs -I{} docker commit {} $(TAG_NAME):latest
 
 install:
 	bash install.sh

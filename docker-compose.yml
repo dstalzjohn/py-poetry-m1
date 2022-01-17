@@ -13,8 +13,8 @@ services:
     volumes:
       - .:/opt/project
 
-  builded:
-    image: "m1-builded:latest"
+  built:
+    image: "m1-built:latest"
     platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"
