@@ -3,7 +3,6 @@ services:
 
   raw:
     image: "python:3.8"
-    container_name: ${RAW_CONTAINER_PREFIX}
     entrypoint: /bin/sh
     platform: linux/amd64
     environment:
@@ -16,7 +15,6 @@ services:
 
   builded:
     image: "${TAG_NAME}:latest"
-    container_name: ${BUILDED_CONTAINER_PREFIX}
     platform: linux/amd64
     environment:
       PATH: "/root/.poetry/bin:${PATH}"
@@ -26,18 +24,4 @@ services:
     working_dir: /opt/project
     volumes:
       - .:/opt/project
-
-  test:
-    image: "python:3.9"
-    container_name: ${TEST_CONTAINER_PREFIX}
-    entrypoint: /bin/sh
-    platform: linux/amd64
-    environment:
-      PATH: "/root/.poetry/bin:${PATH}"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    working_dir: /opt/project
-    volumes:
-      - .:/opt/project
-
 
