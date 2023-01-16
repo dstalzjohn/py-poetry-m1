@@ -1,6 +1,6 @@
 
 create_env:
-	conda create -n env-tf-poet-3.8 python=3.8
+	conda create -n env-tf-poet-3.10 python=3.10
 
 install_x64:
 	poetry install -E tensorflow-x64

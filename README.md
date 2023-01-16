@@ -6,7 +6,7 @@ Additionally when using the M1 chip, the power of its GPU is enabled for tensorf
 ## Usage with the M1 chip
 
 - `make create_env`
-- `conda activate env-tf-poet-3.8`
+- `conda activate env-tf-poet-3.10`
 - `make install_m1`
 - `make patch_mac_m1`
 - `make run_main`
@@ -21,6 +21,6 @@ It should print `GPU enabled`
 ## Usage on x64/x86 architecture
 
 - `make create_env`
-- `conda activate env-tf-poet-3.8`
+- `conda activate env-tf-poet-3.10`
 - `make install_x64`
 - `make run_main`
